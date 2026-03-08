@@ -10,12 +10,12 @@ To use this skill in your npm project:
 
 1. Create the skill folder structure:
    ```bash
-   mkdir -p .github/skills/npm-readme
+   mkdir -p .github/skills/npm-readme-skill
    ```
 
 2. Copy the skill files:
    ```bash
-   cp SKILL.md README-template.md .github/skills/npm-readme/
+   cp SKILL.md README-template.md .github/skills/npm-readme-skill/
    ```
 
 3. Your project structure should now look like:
@@ -23,7 +23,7 @@ To use this skill in your npm project:
    my-npm-project/
    ├── .github/
    │   └── skills/
-   │       └── npm-readme/
+   │       └── npm-readme-skill/
    │           ├── SKILL.md
    │           └── README-template.md
    ├── src/
