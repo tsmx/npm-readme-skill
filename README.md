@@ -2,14 +2,20 @@
 
 > Sophisticated AI skill for generating consistent, high-quality READMEs for npm library projects.
 
-Produce professional READMEs for your npm packages with `npm-readme-skill` in a few minutes. Includes the following features: 
+Produce professional READMEs for your npm packages with `npm-readme-skill` in a few minutes. Includes the following features:
 
-🔍 **Intelligent project analysis** — auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features  
-📋 **Template-driven generation** — follows a proven structure with inline guidance for consistent quality  
-✨ **Smart badge management** — evaluates badge coverage and suggests improvements  
-🎯 **Optional section detection** — identifies project-specific sections that enhance the README  
-♻️ **Update-safe workflow** — creates new READMEs or carefully updates existing ones while preserving custom content  
-✅ **Quality validation** — comprehensive post-generation checks ensure completeness and correctness
+- 🔍 **Intelligent project analysis**  
+  auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features
+- 📋 **Template-driven generation**  
+  follows a proven structure with inline guidance for consistent quality
+- ✨ **Smart badge management**  
+  evaluates badge coverage and suggests improvements
+- 🎯 **Optional section detection**  
+  identifies project-specific sections that enhance the README
+- ♻️ **Update-safe workflow**  
+  creates new READMEs or carefully updates existing ones while preserving custom content
+- ✅ **Quality validation**  
+  comprehensive post-generation checks ensure completeness and correctness
 
 ## Quick Start
 
