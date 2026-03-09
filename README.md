@@ -6,6 +6,8 @@
 
 ## Installation
 
+### VS Code Copilot
+
 To use this skill in your npm project:
 
 1. Create the skill folder structure:
@@ -31,6 +33,10 @@ To use this skill in your npm project:
    └── ...
    ```
 
+### Using with Other AI Tools
+
+This skill works with any AI tool that supports custom instructions. Drop `SKILL.md` and `README-template.md` into your tool's custom instructions folder. Compatible with Claude Code, OpenCode, Cursor, and similar AI code editors.
+
 ---
 
 ## Quick Start
@@ -50,11 +56,11 @@ Generate documentation for this npm library
 ```
 
 The skill will automatically detect the request and:
-1. 🔍 Scan your project (auto-detect metadata, CI, tests, features)
-2. 📋 Propose optional sections (Configuration, Setup, Changelog, etc.)
-3. ❓ Ask for missing information (if needed)
-4. ✨ Generate or update `README.md`
-5. ✅ Validate and report success
+1. Scan your project (auto-detect metadata, CI, tests, features)
+2. Propose optional sections (Configuration, Setup, Changelog, etc.)
+3. Ask for missing information (if needed)
+4. Generate or update `README.md`
+5. Validate and report success
 
 ---
 
@@ -62,21 +68,21 @@ The skill will automatically detect the request and:
 
 `npm-readme-skill` is a specialized GitHub Copilot skill that automates README generation for npm packages. It provides a structured, template-based approach to creating professional, consistent documentation that appears on npmjs.com. The skill intelligently scans your project, asks for missing information only when necessary, and generates a README that follows best practices.
 
-🔍 **Intelligent project analysis** — auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features  
-📋 **Template-driven generation** — follows a proven structure with inline guidance for consistent quality  
-✨ **Smart badge management** — evaluates badge coverage and suggests improvements  
-🎯 **Optional section detection** — identifies project-specific sections that enhance the README  
-♻️ **Update-safe workflow** — creates new READMEs or carefully updates existing ones while preserving custom content  
-✅ **Quality validation** — comprehensive post-generation checks ensure completeness and correctness  
+Intelligent project analysis — auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features  
+Template-driven generation — follows a proven structure with inline guidance for consistent quality  
+Smart badge management — evaluates badge coverage and suggests improvements  
+Optional section detection — identifies project-specific sections that enhance the README  
+Update-safe workflow — creates new READMEs or carefully updates existing ones while preserving custom content  
+Quality validation — comprehensive post-generation checks ensure completeness and correctness  
 
 ---
 
 ## When to Use
 
-- **Creating** the first `README.md` for an npm package
-- **Updating** an existing README to match a professional template and quality standard
-- **Documenting** a library for publication on npmjs.com
-- **Ensuring** consistent README structure and styling across multiple npm packages
+- Creating the first `README.md` for an npm package
+- Updating an existing README to match a professional template and quality standard
+- Documenting a library for publication on npmjs.com
+- Ensuring consistent README structure and styling across multiple npm packages
 
 ---
 
@@ -181,8 +187,8 @@ Identifies project-specific optional sections with concrete evidence and request
 Collects mandatory fields with explicit warning if missing. Asks for recommended fields (description, real-world use cases) in one batched message.
 
 ### Phase 6 — Generation or Update
-- **Create mode**: generates a complete README following the template
-- **Update mode**: merges template sections into existing README while preserving custom content
+- Create mode: generates a complete README following the template
+- Update mode: merges template sections into existing README while preserving custom content
 
 ### Phase 7 — Post-generation Review
 Self-validates the output and reports a summary.
@@ -191,12 +197,12 @@ Self-validates the output and reports a summary.
 
 ## Tips for Best Results
 
-- ✅ Ensure your `package.json` has complete metadata: `name`, `license`, `engines.node`, `repository`, `description`
-- ✅ If you have a GitHub repository, make sure `.git/config` is present or `repository` field is set
-- ✅ For badge coverage, consider setting up GitHub Actions and Coveralls (both free for open source)
-- ✅ When the skill asks for a description expansion, provide a concrete sentence about the problem solved and intended use case
-- ✅ For API-heavy packages, have your entry point source code ready so the skill can accurately analyze function signatures
-- ✅ Review the generated README in context of your project's actual features — the skill generates based on patterns, not deep code analysis
+- Ensure your `package.json` has complete metadata: `name`, `license`, `engines.node`, `repository`, `description`
+- If you have a GitHub repository, make sure `.git/config` is present or `repository` field is set
+- For badge coverage, consider setting up GitHub Actions and Coveralls (both free for open source)
+- When the skill asks for a description expansion, provide a concrete sentence about the problem solved and intended use case
+- For API-heavy packages, have your entry point source code ready so the skill can accurately analyze function signatures
+- Review the generated README in context of your project's actual features — the skill generates based on patterns, not deep code analysis
 
 ---
 
