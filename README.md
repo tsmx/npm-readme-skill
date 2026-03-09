@@ -2,48 +2,35 @@
 
 > Sophisticated AI skill for generating consistent, high-quality READMEs for npm library projects.
 
----
-
-## Installation
-
-### VS Code Copilot
-
-To use this skill in your npm project:
-
-1. Create the skill folder structure:
-   ```bash
-   mkdir -p .github/skills/npm-readme-skill
-   ```
-
-2. Copy the skill files:
-   ```bash
-   cp SKILL.md README-template.md .github/skills/npm-readme-skill/
-   ```
-
-3. Your project structure should now look like:
-   ```
-   my-npm-project/
-   ├── .github/
-   │   └── skills/
-   │       └── npm-readme-skill/
-   │           ├── SKILL.md
-   │           └── README-template.md
-   ├── src/
-   ├── package.json
-   └── ...
-   ```
-
-### Using with Other AI Tools
-
-This skill works with any AI tool that supports custom instructions. Drop `SKILL.md` and `README-template.md` into your tool's custom instructions folder. Compatible with Claude Code, OpenCode, Cursor, and similar AI code editors.
-
----
-
 ## Quick Start
 
-### Generate a README
+### Setup (30 seconds)
 
-Open VS Code Copilot chat and ask the skill to generate or update a README:
+For VS Code Copilot, create the skill folder and copy the files:
+
+```bash
+mkdir -p .github/skills/npm-readme-skill
+cp SKILL.md README-template.md .github/skills/npm-readme-skill/
+```
+
+Your project structure should now look like:
+```
+my-npm-project/
+├── .github/
+│   └── skills/
+│       └── npm-readme-skill/
+│           ├── SKILL.md
+│           └── README-template.md
+├── src/
+├── package.json
+└── ...
+```
+
+For other AI tools (Claude Code, OpenCode, Cursor, etc.), drop `SKILL.md` and `README-template.md` into your tool's custom instructions folder.
+
+### Generate a README (1 minute)
+
+Open your AI tool's chat and ask:
 
 ```
 Create a README for my npm package
@@ -55,14 +42,12 @@ Or:
 Generate documentation for this npm library
 ```
 
-The skill will automatically detect the request and:
+The skill will automatically:
 1. Scan your project (auto-detect metadata, CI, tests, features)
 2. Propose optional sections (Configuration, Setup, Changelog, etc.)
 3. Ask for missing information (if needed)
 4. Generate or update `README.md`
 5. Validate and report success
-
----
 
 ## Description
 
@@ -73,9 +58,7 @@ The skill will automatically detect the request and:
 ✨ **Smart badge management** — evaluates badge coverage and suggests improvements  
 🎯 **Optional section detection** — identifies project-specific sections that enhance the README  
 ♻️ **Update-safe workflow** — creates new READMEs or carefully updates existing ones while preserving custom content  
-✅ **Quality validation** — comprehensive post-generation checks ensure completeness and correctness  
-
----
+✅ **Quality validation** — comprehensive post-generation checks ensure completeness and correctness
 
 ## When to Use
 
@@ -83,8 +66,6 @@ The skill will automatically detect the request and:
 - Updating an existing README to match a professional template and quality standard
 - Documenting a library for publication on npmjs.com
 - Ensuring consistent README structure and styling across multiple npm packages
-
----
 
 ## Full Feature List
 
@@ -148,16 +129,12 @@ All optional sections can be cherry-picked by the user.
 - **Batched questions** — asks all recommended questions at once, never piecemeal
 - **Non-exhaustive guidance** — signal table for optional sections is explicitly marked as a starting point; encourages thinking beyond the examples
 
----
-
 ## Files in This Skill
 
 | File | Purpose |
 |------|---------|
 | **SKILL.md** | The skill definition; contains the 7-phase procedure, all generation rules, and formatting standards |
 | **README-template.md** | The template for generated npm library READMEs, with inline `<!-- AI: ... -->` guidance for filling each section |
-
----
 
 ## How It Works
 
@@ -193,8 +170,6 @@ Collects mandatory fields with explicit warning if missing. Asks for recommended
 ### Phase 7 — Post-generation Review
 Self-validates the output and reports a summary.
 
----
-
 ## Tips for Best Results
 
 - Ensure your `package.json` has complete metadata: `name`, `license`, `engines.node`, `repository`, `description`
@@ -203,8 +178,6 @@ Self-validates the output and reports a summary.
 - When the skill asks for a description expansion, provide a concrete sentence about the problem solved and intended use case
 - For API-heavy packages, have your entry point source code ready so the skill can accurately analyze function signatures
 - Review the generated README in context of your project's actual features — the skill generates based on patterns, not deep code analysis
-
----
 
 ## How the Template Ensures Quality
 
@@ -218,8 +191,6 @@ The `README-template.md` enforces consistent structure via inline `<!-- AI: ... 
 
 Every section includes explicit guidance on what to fill in and how to style it.
 
----
-
 ## Extending the Skill
 
 To customize the skill for your team or workspace:
@@ -228,8 +199,6 @@ To customize the skill for your team or workspace:
 2. **Update the procedure** — edit `SKILL.md` Phase 2, 3, 4, or 5 to add new detection signals or change prompts
 
 The skill will automatically use your customized versions during generation.
-
----
 
 ## Related Files
 
