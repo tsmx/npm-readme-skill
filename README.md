@@ -2,9 +2,18 @@
 
 > Sophisticated AI skill for generating consistent, high-quality READMEs for npm library projects.
 
+Produce professional READMEs for your npm packages with `npm-readme-skill` in a few minutes. Includes the following features: 
+
+🔍 **Intelligent project analysis** — auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features  
+📋 **Template-driven generation** — follows a proven structure with inline guidance for consistent quality  
+✨ **Smart badge management** — evaluates badge coverage and suggests improvements  
+🎯 **Optional section detection** — identifies project-specific sections that enhance the README  
+♻️ **Update-safe workflow** — creates new READMEs or carefully updates existing ones while preserving custom content  
+✅ **Quality validation** — comprehensive post-generation checks ensure completeness and correctness
+
 ## Quick Start
 
-### Setup (30 seconds)
+### Step 1 - Setup
 
 For VS Code Copilot, create the skill folder and copy the files:
 
@@ -28,7 +37,7 @@ my-npm-project/
 
 For other AI tools (Claude Code, OpenCode, Cursor, etc.), drop `SKILL.md` and `README-template.md` into your tool's custom instructions folder.
 
-### Generate a README (1 minute)
+### Step 2 - Generate a README
 
 Open your AI tool's chat and ask:
 
@@ -42,23 +51,12 @@ Or:
 Generate documentation for this npm library
 ```
 
-The skill will automatically:
+The skill will kick in automatically and do the following:
 1. Scan your project (auto-detect metadata, CI, tests, features)
 2. Propose optional sections (Configuration, Setup, Changelog, etc.)
 3. Ask for missing information (if needed)
 4. Generate or update `README.md`
 5. Validate and report success
-
-## Description
-
-`npm-readme-skill` is a specialized AI skill that automates README generation for npm packages. It provides a structured, template-based approach to creating professional, consistent documentation that appears on npmjs.com. The skill intelligently scans your project, asks for missing information only when necessary, and generates a README that follows best practices.
-
-🔍 **Intelligent project analysis** — auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features  
-📋 **Template-driven generation** — follows a proven structure with inline guidance for consistent quality  
-✨ **Smart badge management** — evaluates badge coverage and suggests improvements  
-🎯 **Optional section detection** — identifies project-specific sections that enhance the README  
-♻️ **Update-safe workflow** — creates new READMEs or carefully updates existing ones while preserving custom content  
-✅ **Quality validation** — comprehensive post-generation checks ensure completeness and correctness
 
 ## When to Use
 
