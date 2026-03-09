@@ -1,6 +1,6 @@
 # npm-readme-skill
 
-> Intelligent GitHub Copilot skill for generating consistent, high-quality READMEs for npm library projects.
+> Sophisticated AI skill for generating consistent, high-quality READMEs for npm library projects.
 
 ---
 
@@ -66,14 +66,14 @@ The skill will automatically detect the request and:
 
 ## Description
 
-`npm-readme-skill` is a specialized GitHub Copilot skill that automates README generation for npm packages. It provides a structured, template-based approach to creating professional, consistent documentation that appears on npmjs.com. The skill intelligently scans your project, asks for missing information only when necessary, and generates a README that follows best practices.
+`npm-readme-skill` is a specialized AI skill that automates README generation for npm packages. It provides a structured, template-based approach to creating professional, consistent documentation that appears on npmjs.com. The skill intelligently scans your project, asks for missing information only when necessary, and generates a README that follows best practices.
 
-Intelligent project analysis — auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features  
-Template-driven generation — follows a proven structure with inline guidance for consistent quality  
-Smart badge management — evaluates badge coverage and suggests improvements  
-Optional section detection — identifies project-specific sections that enhance the README  
-Update-safe workflow — creates new READMEs or carefully updates existing ones while preserving custom content  
-Quality validation — comprehensive post-generation checks ensure completeness and correctness  
+🔍 **Intelligent project analysis** — auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features  
+📋 **Template-driven generation** — follows a proven structure with inline guidance for consistent quality  
+✨ **Smart badge management** — evaluates badge coverage and suggests improvements  
+🎯 **Optional section detection** — identifies project-specific sections that enhance the README  
+♻️ **Update-safe workflow** — creates new READMEs or carefully updates existing ones while preserving custom content  
+✅ **Quality validation** — comprehensive post-generation checks ensure completeness and correctness  
 
 ---
 
@@ -89,17 +89,17 @@ Quality validation — comprehensive post-generation checks ensure completeness 
 ## Full Feature List
 
 ### Project Intelligence
-- 🔎 **Deep package.json parsing** — extracts name, version, license, entry points, module format, peer dependencies
-- 📍 **Git repository detection** — derives GitHub user/repo from `.git/config` or `package.json`
-- 🔗 **Repository metadata** — analyzes CI workflows, test configuration, coverage setup
-- 📦 **Module format detection** — identifies CommonJS, ESM, or dual-export packages
-- 🏷️ **Git history analysis** — inspects version tags and commit messages for Changelog and breaking changes
+- **Deep package.json parsing** — extracts name, version, license, entry points, module format, peer dependencies
+- **Git repository detection** — derives GitHub user/repo from `.git/config` or `package.json`
+- **Repository metadata** — analyzes CI workflows, test configuration, coverage setup
+- **Module format detection** — identifies CommonJS, ESM, or dual-export packages
+- **Git history analysis** — inspects version tags and commit messages for Changelog and breaking changes
 
 ### Badge Management
-- 🎖️ **Badge coverage assessment** — evaluates License, npm version, Node version, CI status, Coverage, TypeScript, Bundle size, Downloads, Snyk
-- 🚨 **Coverage recommendations** — suggests GitHub Actions or Coveralls setup if badges are sparse
-- 🔄 **Live Coveralls probe** — checks `coveralls.io/github/{user}/{repo}` API to confirm coverage data exists
-- 🤝 **Alternative suggestions** — recommends no-infrastructure badges if missing tooling
+- **Badge coverage assessment** — evaluates License, npm version, Node version, CI status, Coverage, TypeScript, Bundle size, Downloads, Snyk
+- **Coverage recommendations** — suggests GitHub Actions or Coveralls setup if badges are sparse
+- **Live Coveralls probe** — checks `coveralls.io/github/{user}/{repo}` API to confirm coverage data exists
+- **Alternative suggestions** — recommends no-infrastructure badges if missing tooling
 
 ### Intelligent Optional Sections
 Detects and proposes:
@@ -118,35 +118,35 @@ Detects and proposes:
 All optional sections can be cherry-picked by the user.
 
 ### Template-Driven Consistency
-- 📋 **Proven structure** — based on analysis of real-world npm library documentation
-- 💬 **Inline AI guidance** — every section contains `<!-- AI: ... -->` comments explaining generation rules
-- 🎨 **Formatting standards** — consistent use of badges, headings, code blocks, API signature patterns, `// Result:` comments
-- 🏷️ **Placeholder tokens** — `{PACKAGE_NAME}`, `{GITHUB_USER}`, `{TAGLINE}`, etc. for clear substitution
+- **Proven structure** — based on analysis of real-world npm library documentation
+- **Inline AI guidance** — every section contains `<!-- AI: ... -->` comments explaining generation rules
+- **Formatting standards** — consistent use of badges, headings, code blocks, API signature patterns, `// Result:` comments
+- **Placeholder tokens** — `{PACKAGE_NAME}`, `{GITHUB_USER}`, `{TAGLINE}`, etc. for clear substitution
 
 ### Create vs. Update Workflow
-- 🆕 **Create mode** — generates a complete, clean README from scratch
-- 🔄 **Update mode** — intelligently merges template sections into existing README:
+- **Create mode** — generates a complete, clean README from scratch
+- **Update mode** — intelligently merges template sections into existing README:
   - Reformats outdated sections to match template style
   - Preserves custom project-specific content
   - Adds missing mandatory sections
   - Audits and improves badge rows
-- ⚠️ **Conflict resolution** — keeps project-specific sections (Roadmap, Contributing, etc.) at the end
+- **Conflict resolution** — keeps project-specific sections (Roadmap, Contributing, etc.) at the end
 
 ### Quality Assurance
-- ✅ **Post-generation validation** — verifies:
+- **Post-generation validation** — verifies:
   - No leftover `{PLACEHOLDER}` tokens
   - No template comment markers in final output
   - All mandatory sections present
   - Badge count ≥ 3
   - Every API function has: signature, description, Parameters, Returns (where applicable), Example with `// Result:` comments
-- 🔧 **Self-correction** — fixes issues before reporting to user
-- 📊 **Summary report** — brief recap of what was created, sections included, deferred suggestions
+- **Self-correction** — fixes issues before reporting to user
+- **Summary report** — brief recap of what was created, sections included, deferred suggestions
 
 ### User-Centric Design
-- ❓ **Reasonable defaults** — extracts as much as possible automatically before asking questions
-- ⚠️ **Explicit warnings** — only blocks generation for truly mandatory missing data
-- 📝 **Batched questions** — asks all recommended questions at once, never piecemeal
-- 🎯 **Non-exhaustive guidance** — signal table for optional sections is explicitly marked as a starting point; encourages thinking beyond the examples
+- **Reasonable defaults** — extracts as much as possible automatically before asking questions
+- **Explicit warnings** — only blocks generation for truly mandatory missing data
+- **Batched questions** — asks all recommended questions at once, never piecemeal
+- **Non-exhaustive guidance** — signal table for optional sections is explicitly marked as a starting point; encourages thinking beyond the examples
 
 ---
 
