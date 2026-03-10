@@ -1,8 +1,8 @@
 # npm-readme-skill
 
-> Sophisticated AI skill for generating consistent, high-quality READMEs for npm library projects.
+> Sophisticated AI skill for generating consistent, high-quality READMEs for npm packages.
 
-Produce professional READMEs for your npm packages with `npm-readme-skill` in a few minutes. Includes the following features:
+When publishing a npm package, the README is the main entry point your users will see on npmjs.com. With the `npm-readme-skill` you'll create highly professional READMEs with the AI tool of your choice in a few minutes. It includes the following features:
 
 - 🔍 **Intelligent project analysis**  
   auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features
@@ -68,7 +68,7 @@ The skill will kick in automatically and do the following:
 
 - Creating the first `README.md` for an npm package
 - Updating an existing README to match a professional template and quality standard
-- Documenting a library for publication on npmjs.com
+- Documenting a package for publication on npmjs.com
 - Ensuring consistent README structure and styling across multiple npm packages
 
 ## Full Feature List
@@ -103,7 +103,7 @@ Detects and proposes:
 All optional sections can be cherry-picked by the user.
 
 ### Template-Driven Consistency
-- **Proven structure** — based on analysis of real-world npm library documentation
+- **Proven structure** — based on analysis of real-world npm packages documentation
 - **Inline AI guidance** — every section contains `<!-- AI: ... -->` comments explaining generation rules
 - **Formatting standards** — consistent use of badges, headings, code blocks, API signature patterns, `// Result:` comments
 - **Placeholder tokens** — `{PACKAGE_NAME}`, `{GITHUB_USER}`, `{TAGLINE}`, etc. for clear substitution
