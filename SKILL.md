@@ -203,6 +203,68 @@ Fix any issues found before reporting to the user.
 
 ---
 
+### Phase 8 — Quality Assurance & Typo Fixes
+
+After generating or updating the README, systematically check for typos, grammatical errors, and inconsistencies that could undermine quality. This phase ensures the final output is polished and professional.
+
+#### QA Checklist
+
+Re-read the entire README and verify all of the following:
+
+- [ ] **No doubled words** — search for common duplicates like "the the", "a a", "and and"
+- [ ] **Tech term capitalization** — consistent usage of: Node.js, npm, npm, GitHub, JavaScript, TypeScript, ESM, CommonJS, ESM, CommonJS, Coveralls, Bundlephobia, Snyk
+- [ ] **Punctuation & spacing**
+  - No missing periods at end of sentences
+  - No extra spaces (e.g., double spaces between words)
+  - No orphaned punctuation (e.g., comma or period hanging alone)
+  - Consistent use of em-dashes (` — `) vs hyphens (` - `)
+- [ ] **Code block correctness**
+  - Every code fence has a language tag (`javascript`, `json`, `bash`, `yaml`, etc.)
+  - Code blocks that show output include `// Result:` comments
+  - No mismatched or unclosed backticks
+- [ ] **Markdown format integrity**
+  - All links are properly formatted: `[text](url)` with no bare URLs
+  - No broken link anchors or malformed markdown
+  - All heading levels follow the template (H1 title, H2 sections, H3 groups, H4 items)
+- [ ] **Trailing whitespace** — no extra spaces or tabs at end of lines
+- [ ] **Section consistency**
+  - Badge bullets are consecutive with no blank lines between them
+  - Feature bullets have emoji prefix + link to API Reference H3 anchor
+  - API Reference H4 signatures are consistently formatted with backticks
+  - Parameters lists are bullet lists with consistent entry format
+
+#### Common Typos in npm READMEs
+
+Watch for these frequent mistakes:
+
+| Typo | Correction |
+|------|------------|
+| installl | install |
+| recieve | receive |
+| arugment | argument |
+| fucntion | function |
+| paremeter | parameter |
+| dependancy | dependency |
+| asyncronous | asynchronous |
+| javascript | JavaScript |
+| node | Node.js |
+| npm | npm (lowercase) |
+| github | GitHub |
+| coveralls | Coveralls |
+| bundlephobia | Bundlephobia |
+
+#### Process
+
+1. **Re-read the entire README top-to-bottom** — catch surface-level errors as you scan
+2. **Run through the QA Checklist above** — verify each item systematically
+3. **Search for common typos** — use your editor's find-replace to hunt for patterns ("the the", doubled words, etc.)
+4. **Check API Reference formatting** — ensure every function entry has description, Parameters, Returns (if applicable), and Example with `// Result:` comments
+5. **Verify all placeholders are gone** — final scan for stray `{PLACEHOLDER}` tokens
+6. **Fix all issues found** — apply corrections immediately
+7. **Final read-through** — spot-check the corrected areas before delivering to user
+
+---
+
 ## Formatting & Style Rules
 
 These rules apply to the entire generated README and override any conflicting conventions:

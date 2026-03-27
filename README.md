@@ -62,7 +62,9 @@ The skill will kick in automatically and do the following:
 2. Propose optional sections (Configuration, Setup, Changelog, etc.)
 3. Ask for missing information (if needed)
 4. Generate or update `README.md`
-5. Validate and report success
+5. Validate the output and correct any issues
+6. Polish with quality assurance (typo fixes, consistency checks)
+7. Report success with final summary
 
 ## When to Use
 
@@ -137,12 +139,12 @@ All optional sections can be cherry-picked by the user.
 
 | File | Purpose |
 |------|---------|
-| **SKILL.md** | The skill definition; contains the 7-phase procedure, all generation rules, and formatting standards |
+| **SKILL.md** | The skill definition; contains the 8-phase procedure, all generation rules, and formatting standards |
 | **README-template.md** | The template for generated npm library READMEs, with inline `<!-- AI: ... -->` guidance for filling each section |
 
 ## How It Works
 
-The skill follows a systematic 7-phase workflow to ensure complete, high-quality output. Below is a brief overview; see [SKILL.md](SKILL.md) for the full detailed procedure.
+The skill follows a systematic 8-phase workflow to ensure complete, high-quality output. Below is a brief overview; see [SKILL.md](SKILL.md) for the full detailed procedure.
 
 ### Phase 1 — Template Review
 Loads and internalizes `README-template.md`, understanding all generation rules and placeholder conventions.
@@ -172,7 +174,17 @@ Collects mandatory fields with explicit warning if missing. Asks for recommended
 - Update mode: merges template sections into existing README while preserving custom content
 
 ### Phase 7 — Post-generation Review
-Self-validates the output and reports a summary.
+Self-validates the output against template requirements (placeholders, sections, API format, badge count).
+
+### Phase 8 — Quality Assurance & Typo Fixes
+Systematically polishes the README by detecting and correcting:
+- Doubled words and typos ("the the", "recieve" → "receive", "paremeter" → "parameter")
+- Tech term capitalization (Node.js vs node, JavaScript vs javascript, npm vs npm)
+- Punctuation errors, spacing, and formatting inconsistencies
+- Markdown integrity (broken links, unmatched backticks, misaligned code blocks)
+- Trailing whitespace and section formatting
+
+Ensures the final README is professional and error-free before delivery.
 
 ## Tips for Best Results
 
