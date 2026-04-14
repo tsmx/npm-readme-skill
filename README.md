@@ -2,11 +2,11 @@
 
 > Sophisticated AI skill for generating consistent, high-quality READMEs for npm packages.
 
-When publishing an npm package, the README is the first thing users see on npmjs.com. This skill generates professional, consistent READMEs with minimal input from you.
+When publishing an npm package, the README is the first thing users see on npmjs.com. This skill generates professional, consistent and serach-optimized READMEs with minimal input from you.
 
 ## Quick Start
 
-Add the skill to your npm project by downloading the two files into your repo:
+Add the skill to your npm library project by downloading the two files into your repo, e.g. for GitHub CoPilot:
 
 ```bash
 mkdir -p .github/skills/npm-readme-skill
@@ -16,7 +16,7 @@ curl -sO --output-dir .github/skills/npm-readme-skill \
   https://raw.githubusercontent.com/tsmx/npm-readme-skill/master/README-template.md
 ```
 
-Then open your AI chat and ask:
+Then open your AI chat and prompt:
 
 ```
 Create a README for my npm package
@@ -24,7 +24,7 @@ Create a README for my npm package
 
 The skill auto-discovers your project, proposes optional sections, optimizes for npmjs.com search, generates `README.md`, and validates the result.
 
-For other AI tools (Claude Code, Cursor, etc.), place `SKILL.md` and `README-template.md` in your tool's custom instructions folder.
+For other AI tools (Claude Code, OpenCode, etc.), place `SKILL.md` and `README-template.md` in your tool's custom instructions folder.
 
 ## Features
 
