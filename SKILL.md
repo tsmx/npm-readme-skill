@@ -160,6 +160,84 @@ Ask **all** recommended questions in **one batched message**, not one question a
 
 ---
 
+### Phase 5b — npm Search Optimization
+
+This phase collects the developer's search intent, researches real npmjs.com results, evaluates the fitness of the requested terms, and produces concrete wording proposals for both `package.json` and the README before any content is generated.
+
+#### Step 1 — Ask for target search terms
+
+Send **one** message to the user:
+
+> _"What search term(s) should a developer type on npmjs.com to find this package? You can give multiple terms. Skip if you'd like me to derive them from the package metadata."_
+
+If the user skips: extract candidate terms from `package.json` `name`, `description`, and `keywords`. Label all proposals derived this way as _(auto-derived)_ so the user knows they were not explicitly confirmed.
+
+#### Step 2 — Research top-ranking packages
+
+For each search term, fetch `https://www.npmjs.com/search?q={term}` (URL-encode spaces and special characters). Scan the **top 5 results** and note:
+
+- Package names and their one-line descriptions
+- Keywords patterns that appear across multiple top results
+- How established/dominant the top results are (weekly downloads, age)
+
+If multiple terms are provided, research all of them before proceeding.
+
+#### Step 3 — Evaluate each term
+
+For each term, assign one of the following verdicts and explain it concisely:
+
+| Verdict | Meaning |
+|---------|---------|
+| ✅ **Good fit** | Package clearly matches what developers searching this term need; realistic to rank for |
+| ⚠️ **Too broad** | Results dominated by large, entrenched packages; consider a more specific variant |
+| ⚠️ **Too narrow** | Few developers use this exact phrase; suggest a more common synonym or broader term |
+| ❌ **Mismatch** | Term implies functionality the package does not provide; flag and propose an alternative |
+
+If a better term exists than what the user provided, always state it explicitly.
+
+#### Step 4 — Propose wording improvements
+
+Present all proposals in **one single message** using the structure below. Apply only the changes that are genuinely beneficial — do not force keywords in where they read unnaturally.
+
+---
+
+> **npm Search Optimization Proposals**
+>
+> **Target terms:** `{term1}`, `{term2}` _(or: auto-derived)_
+>
+> **Term evaluation:**
+> - `{term1}` — ✅ Good fit / ⚠️ Too broad / ❌ Mismatch — {one-sentence reason}
+> - `{term2}` — … _(repeat for each term)_
+>
+> **`package.json` — `description` field** _(10–20 words; primary term front-loaded)_
+> ```
+> {proposed description}
+> ```
+>
+> **`package.json` — `keywords` array** _(5–10 terms; ordered by relevance; include hyphenated and spaced variants)_
+> ```json
+> ["term1", "term-1", "term 1", "related-term", ...]
+> ```
+>
+> **Tagline** _(ensure the primary search terms are present somewhere in the sentence; word order and adjacency do not affect npm scoring — omit this block if the terms are already present)_
+> `{proposed tagline}`
+>
+> **Intro paragraph** _(ensure the primary search terms appear somewhere in the first sentence — adjacency is irrelevant to npm ranking; omit if already present)_
+> {proposed intro paragraph}
+>
+> **"What this package does" bullets** _(reworded if key terms are absent — omit if no improvement needed)_
+> - ✅ {reworded capability}
+> - …
+>
+> **Section headings** _(only if a heading change would naturally include a key term — omit if none)_
+> - `## {current heading}` → `## {proposed heading}` — reason
+
+---
+
+Wait for the user to approve, modify, or reject the proposals before proceeding. Apply only the approved changes when generating the README in Phase 6. Note: `package.json` changes (`description`, `keywords`) are proposed here but **must be applied manually by the user** — the skill only writes `README.md`.
+
+---
+
 ### Phase 6 — Generate or Update the README
 
 #### Create mode (no existing README)
@@ -203,7 +281,7 @@ After writing the file, re-read the output and verify:
 
 Fix any issues found before reporting to the user.
 
-**Final report to user:** brief summary of what was created or updated, which optional sections were included, and any badge improvement suggestions that were noted but deferred.
+**Final report to user:** brief summary of what was created or updated, which optional sections were included, and any badge improvement suggestions that were noted but deferred. If search optimization proposals were approved in Phase 5b, remind the user to manually apply the `description` and `keywords` changes to `package.json`.
 
 ---
 
@@ -284,3 +362,8 @@ These rules apply to the entire generated README and override any conflicting co
 - **Horizontal rule** (`---`): separates API Reference groups (after last H4 of each group) and major document sections.
 - **No emoji in H2/H3/H4 headings** — emoji is reserved for feature bullet groups only.
 - **No template comment markers in output** — strip every `<!-- AI: -->` and `<!-- OPTIONAL: -->` block before writing the file.
+- **Search term placement** (npm search ranking facts):
+  - `name` is boosted **4×**, `keywords` **2×**, `description` **1×**, `readme` lowest — optimise in that order
+  - npm uses tokenised `multi_match` (`cross_fields`): both terms must be **present** across the searched fields; word order and adjacency have no effect on score
+  - In the `keywords` array, include a hyphenated compound entry (e.g. `"nodejs-encryption"`) in addition to individual tokens — this enables exact keyword-filter searches (`keywords:nodejs-encryption`)
+  - Ensure the primary search terms appear in the tagline and intro paragraph; phrasing and adjacency do not matter for ranking, only presence
