@@ -2,221 +2,58 @@
 
 > Sophisticated AI skill for generating consistent, high-quality READMEs for npm packages.
 
-When publishing a npm package, the README is the main entry point your users will see on npmjs.com. With the `npm-readme-skill` you'll create highly professional READMEs with the AI tool of your choice in a few minutes. It includes the following features:
-
-- 🔍 **Intelligent project analysis**  
-  auto-discovers package metadata, repository info, CI/CD setup, test frameworks, and features
-- 📋 **Template-driven generation**  
-  follows a proven structure with inline guidance for consistent quality
-- ✨ **Smart badge management**  
-  evaluates badge coverage and suggests improvements
-- 🎯 **Optional section detection**  
-  identifies project-specific sections that enhance the README
-- ♻️ **Update-safe workflow**  
-  creates new READMEs or carefully updates existing ones while preserving custom content
-- ✅ **Quality validation**  
-  comprehensive post-generation checks ensure completeness and correctness
+When publishing an npm package, the README is the first thing users see on npmjs.com. This skill generates professional, consistent READMEs with minimal input from you.
 
 ## Quick Start
 
-### Step 1 - Setup
-
-For VS Code Copilot, create the skill folder and copy the files:
+Add the skill to your npm project by downloading the two files into your repo:
 
 ```bash
 mkdir -p .github/skills/npm-readme-skill
-cp SKILL.md README-template.md .github/skills/npm-readme-skill/
+curl -sO --output-dir .github/skills/npm-readme-skill \
+  https://raw.githubusercontent.com/tsmx/npm-readme-skill/master/SKILL.md
+curl -sO --output-dir .github/skills/npm-readme-skill \
+  https://raw.githubusercontent.com/tsmx/npm-readme-skill/master/README-template.md
 ```
 
-Your project structure should now look like:
-```
-my-npm-project/
-├── .github/
-│   └── skills/
-│       └── npm-readme-skill/
-│           ├── SKILL.md
-│           └── README-template.md
-├── src/
-├── package.json
-└── ...
-```
-
-For other AI tools (Claude Code, OpenCode, Cursor, etc.), drop `SKILL.md` and `README-template.md` into your tool's custom instructions folder.
-
-### Step 2 - Generate a README
-
-Open your AI tool's chat and ask:
+Then open your AI chat and ask:
 
 ```
 Create a README for my npm package
 ```
 
-Or:
+The skill auto-discovers your project, proposes optional sections, optimizes for npmjs.com search, generates `README.md`, and validates the result.
 
-```
-Generate documentation for this npm library
-```
+For other AI tools (Claude Code, Cursor, etc.), place `SKILL.md` and `README-template.md` in your tool's custom instructions folder.
 
-The skill will kick in automatically and do the following:
-1. Scan your project (auto-detect metadata, CI, tests, features)
-2. Propose optional sections (Configuration, Setup, Changelog, etc.)
-3. Ask for missing information (if needed)
-4. Generate or update `README.md`
-5. Validate the output and correct any issues
-6. Polish with quality assurance (typo fixes, consistency checks)
-7. Report success with final summary
+## Features
 
-## When to Use
-
-- Creating the first `README.md` for an npm package
-- Updating an existing README to match a professional template and quality standard
-- Documenting a package for publication on npmjs.com
-- Ensuring consistent README structure and styling across multiple npm packages
-
-## Full Feature List
-
-### Project Intelligence
-- **Deep package.json parsing** — extracts name, version, license, entry points, module format, peer dependencies
-- **Git repository detection** — derives GitHub user/repo from `.git/config` or `package.json`
-- **Repository metadata** — analyzes CI workflows, test configuration, coverage setup
-- **Module format detection** — identifies CommonJS, ESM, or dual-export packages
-- **Git history analysis** — inspects version tags and commit messages for Changelog and breaking changes
-
-### Badge Management
-- **Badge coverage assessment** — evaluates License, npm version, Node version, CI status, Coverage, TypeScript, Bundle size, Downloads, Snyk
-- **Coverage recommendations** — suggests GitHub Actions or Coveralls setup if badges are sparse
-- **Live Coveralls probe** — checks `coveralls.io/github/{user}/{repo}` API to confirm coverage data exists
-- **Alternative suggestions** — recommends no-infrastructure badges if missing tooling
-
-### Intelligent Optional Sections
-Detects and proposes:
-- **Options / Configuration** — functions accepting options objects
-- **Setup & Integration** — environment variables, key injection patterns
-- **Naming Conventions** — `NODE_ENV`-based config files, multi-stage file loading
-- **Changelog** — populated with real semver tags and `BREAKING CHANGE`/`feat!`/`fix!` commits from git log
-- **Migration / Upgrading** — major version breaks and migration paths
-- **SBOM** — CycloneDX software bill of materials
-- **CLI / Command-line Usage** — when `bin` field is declared
-- **Security** — sensitive logic, CVE handling, security policies
-- **Contributing** — governance, PR/issue templates
-- **Performance** — benchmarks, streaming, zero-copy design
-- **License details** — for non-standard or dual-licensed projects
-
-All optional sections can be cherry-picked by the user.
-
-### Template-Driven Consistency
-- **Proven structure** — based on analysis of real-world npm packages documentation
-- **Inline AI guidance** — every section contains `<!-- AI: ... -->` comments explaining generation rules
-- **Formatting standards** — consistent use of badges, headings, code blocks, API signature patterns, `// Result:` comments
-- **Placeholder tokens** — `{PACKAGE_NAME}`, `{GITHUB_USER}`, `{TAGLINE}`, etc. for clear substitution
-
-### Create vs. Update Workflow
-- **Create mode** — generates a complete, clean README from scratch
-- **Update mode** — intelligently merges template sections into existing README:
-  - Reformats outdated sections to match template style
-  - Preserves custom project-specific content
-  - Adds missing mandatory sections
-  - Audits and improves badge rows
-- **Conflict resolution** — keeps project-specific sections (Roadmap, Contributing, etc.) at the end
-
-### Quality Assurance
-- **Post-generation validation** — verifies:
-  - No leftover `{PLACEHOLDER}` tokens
-  - No template comment markers in final output
-  - All mandatory sections present
-  - Badge count ≥ 3
-  - Every API function has: signature, description, Parameters, Returns (where applicable), Example with `// Result:` comments
-- **Self-correction** — fixes issues before reporting to user
-- **Summary report** — brief recap of what was created, sections included, deferred suggestions
-
-### User-Centric Design
-- **Reasonable defaults** — extracts as much as possible automatically before asking questions
-- **Explicit warnings** — only blocks generation for truly mandatory missing data
-- **Batched questions** — asks all recommended questions at once, never piecemeal
-- **Non-exhaustive guidance** — signal table for optional sections is explicitly marked as a starting point; encourages thinking beyond the examples
+- Project auto-discovery — reads `package.json`, git config, CI workflows, test setup, and git history
+- Badge management — evaluates badge coverage and offers improvements
+- Optional section detection — identifies Setup, Options, Changelog, SBOM, Security, CLI, and more from project signals
+- npm search optimization — researches top-ranking packages for your target terms and proposes `package.json` `description`, `keywords`, tagline, and intro wording for better discoverability
+- Create and update modes — generates from scratch or merges into an existing README without losing custom content
+- Post-generation validation — checks for leftover placeholders, missing sections, API formatting, and typos before delivery
 
 ## Files in This Skill
 
 | File | Purpose |
 |------|---------|
-| **SKILL.md** | The skill definition; contains the 8-phase procedure, all generation rules, and formatting standards |
-| **README-template.md** | The template for generated npm library READMEs, with inline `<!-- AI: ... -->` guidance for filling each section |
+| SKILL.md | The skill definition — generation procedure, rules, and formatting standards |
+| README-template.md | The README template for npm libraries, with inline `<!-- AI: ... -->` guidance per section |
 
 ## How It Works
 
-The skill follows a systematic 8-phase workflow to ensure complete, high-quality output. Below is a brief overview; see [SKILL.md](SKILL.md) for the full detailed procedure.
+1. Read the template and internalize all generation rules
+2. Scan the project — package identity, repo, CI, tests, module format, optional section signals
+3. Evaluate badge coverage; offer to fill gaps
+4. Identify and propose optional sections with concrete evidence
+5. Collect missing mandatory fields; ask for recommended ones in one batched message
+6. Research npmjs.com for target search terms; propose `description`, `keywords`, and README wording for better discoverability
+7. Generate or update `README.md`
+8. Post-generation review — validate completeness, check all sections and API entries
+9. Quality assurance — typo detection, capitalization, punctuation, and formatting polish
 
-### Phase 1 — Template Review
-Loads and internalizes `README-template.md`, understanding all generation rules and placeholder conventions.
+## Customizing
 
-### Phase 2 — Project Scan
-Automatically inspects your project to extract:
-- Package identity (name, version, license, entry point, module format)
-- Repository & CI (GitHub user/repo, CI workflows, Coveralls status)
-- Test setup (test framework, coverage tools)
-- Features & optional sections (config patterns, env variables, breaking changes, security files, CLI, TypeScript, etc.)
-- Existing README (flags it for update mode)
-
-### Phase 3 — Badge Coverage Analysis
-Evaluates available badges (License, npm version, Node version, CI status, Coverage, TypeScript, etc.):
-- Ensures 3–5 badges minimum for quality presentation
-- Proactively offers to generate GitHub Actions / Coveralls setup if sparse
-- Suggests no-infra alternatives
-
-### Phase 4 — Optional Section Proposal
-Identifies project-specific optional sections with concrete evidence and requests user confirmation.
-
-### Phase 5 — Missing Information Collection
-Collects mandatory fields with explicit warning if missing. Asks for recommended fields (description, real-world use cases) in one batched message.
-
-### Phase 6 — Generation or Update
-- Create mode: generates a complete README following the template
-- Update mode: merges template sections into existing README while preserving custom content
-
-### Phase 7 — Post-generation Review
-Self-validates the output against template requirements (placeholders, sections, API format, badge count).
-
-### Phase 8 — Quality Assurance & Typo Fixes
-Systematically polishes the README by detecting and correcting:
-- Doubled words and typos ("the the", "recieve" → "receive", "paremeter" → "parameter")
-- Tech term capitalization (Node.js vs node, JavaScript vs javascript, npm vs npm)
-- Punctuation errors, spacing, and formatting inconsistencies
-- Markdown integrity (broken links, unmatched backticks, misaligned code blocks)
-- Trailing whitespace and section formatting
-
-Ensures the final README is professional and error-free before delivery.
-
-## Tips for Best Results
-
-- Ensure your `package.json` has complete metadata: `name`, `license`, `engines.node`, `repository`, `description`
-- If you have a GitHub repository, make sure `.git/config` is present or `repository` field is set
-- For badge coverage, consider setting up GitHub Actions and Coveralls (both free for open source)
-- When the skill asks for a description expansion, provide a concrete sentence about the problem solved and intended use case
-- For API-heavy packages, have your entry point source code ready so the skill can accurately analyze function signatures
-- Review the generated README in context of your project's actual features — the skill generates based on patterns, not deep code analysis
-
-## How the Template Ensures Quality
-
-The `README-template.md` enforces consistent structure via inline `<!-- AI: ... -->` annotations:
-
-- **Header**: badges (3–5), title, tagline blockquote
-- **Description**: 1–2 prose sentences + emoji-grouped feature bullets
-- **Usage**: optional motivating before/after + minimal real-world code example (CommonJS + optional ESM)
-- **API Reference**: one H3 group per capability, one H4 per function, with Parameters → Returns (if applicable) → Example (`// Result:` comments)
-- **Optional sections**: Configuration, Setup, Naming Conventions, Changelog, SBOM, Migration, Security, Contributing, Performance, License
-
-Every section includes explicit guidance on what to fill in and how to style it.
-
-## Extending the Skill
-
-To customize the skill for your team or workspace:
-
-1. **Modify the template** — edit `README-template.md` to adjust structure, add sections, or change formatting rules
-2. **Update the procedure** — edit `SKILL.md` Phase 2, 3, 4, or 5 to add new detection signals or change prompts
-
-The skill will automatically use your customized versions during generation.
-
-## Related Files
-
-- [README-template.md](README-template.md) — the generation template
-- [SKILL.md](SKILL.md) — detailed procedure and rules (7 phases)
+Edit `README-template.md` to adjust structure or add sections. Edit `SKILL.md` to change detection signals, prompts, or generation rules. The skill uses your local copies automatically.
