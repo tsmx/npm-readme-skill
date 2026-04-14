@@ -2,7 +2,7 @@
 
 > Sophisticated AI skill for generating consistent, high-quality READMEs for npm packages.
 
-When publishing an npm package, the README is the first thing users see on npmjs.com. This skill generates professional, consistent and serach-optimized READMEs with minimal input from you.
+When publishing an npm package, the README is the first thing users see on npmjs.com. This skill generates professional, consistent and search-optimized READMEs with minimal input from you.
 
 ## Quick Start
 
