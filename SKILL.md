@@ -113,6 +113,8 @@ A good README has **3–5 badges or more**. Assess the available badge data:
 
 ### Phase 4 — Identify and Propose Optional Sections
 
+> **Note:** `## Installation`, `## Quick Example`, and `## What this package does` are **mandatory** sections placed at the top of the README — do not propose or list them as optional.
+
 Based on the signals collected in Phase 2, compile the list of optional sections that are relevant for **this specific project**. Do not limit yourself to the examples in the signal table — consider anything that would genuinely help a developer understand, integrate, or trust this library. Think about the library's domain, complexity, target audience, and any unusual characteristics surfaced during scanning.
 
 For each candidate section, note the concrete evidence that justifies it (a file found, a pattern in the source, git history, etc.).
@@ -148,9 +150,11 @@ Do not proceed to Phase 6 until all mandatory fields are known. If any cannot be
 > ⚠️ **If a mandatory field is missing:** _"I could not determine `{FIELD}` automatically — this is required to generate the README. Please provide it before I continue."_
 
 #### Recommended fields — ask once, allow skip
-- Expanded description paragraph — if `package.json` description is a single short phrase
+- `{INTRO_PARAGRAPH}` — if `package.json` description is a single short phrase, ask for or synthesize a 1–2 sentence expansion
+- `{QUICK_EXAMPLE_CODE}` — infer from the entry point source if possible; otherwise ask for the 3–5 lines that best represent core usage
+- `{QUICK_EXAMPLE_CALLOUT}` — one-line benefit statement for the Quick Example blockquote; synthesize from the library's purpose if not provided
 - `{WORKFLOW_FILE}` — if multiple `.github/workflows/` files exist and it's ambiguous which one the CI badge should point to
-- A motivating real-world use-case scenario — if a before/after example would significantly strengthen the README
+- A motivating real-world use-case scenario inside `## Usage` — if a before/after example would significantly strengthen the README
 
 Ask **all** recommended questions in **one batched message**, not one question at a time.
 
@@ -192,7 +196,7 @@ After writing the file, re-read the output and verify:
 
 - [ ] No `{PLACEHOLDER}` tokens remain anywhere in the document
 - [ ] No `<!-- AI: ... -->` or `<!-- OPTIONAL: ... -->` comment markers remain
-- [ ] All four mandatory sections are present: Header, Description & Benefits, Usage, API Reference
+- [ ] All mandatory sections are present: Header (badges + H1 + tagline + intro paragraph), Installation, Quick Example, What this package does, Usage, API Reference
 - [ ] Badge row contains 3 or more badges
 - [ ] Every API Reference function entry has: H4 signature, description, Parameters list, Returns line (or is intentionally omitted for void functions), Example code block with `// Result:` comments
 - [ ] All optional section comment guards are removed
@@ -229,7 +233,7 @@ Re-read the entire README and verify all of the following:
 - [ ] **Trailing whitespace** — no extra spaces or tabs at end of lines
 - [ ] **Section consistency**
   - Badge bullets are consecutive with no blank lines between them
-  - Feature bullets have emoji prefix + link to API Reference H3 anchor
+  - "What this package does" ✅ bullets each end with two trailing spaces
   - API Reference H4 signatures are consistently formatted with backticks
   - Parameters lists are bullet lists with consistent entry format
 
@@ -272,7 +276,7 @@ These rules apply to the entire generated README and override any conflicting co
 - **Badges**: on consecutive lines, no blank lines between them, placed above the H1 title.
 - **H1 title**: package name, optionally hyperlinked to GitHub. Scope prefix included: `# [**@scope/name**](https://github.com/user/repo)`.
 - **Tagline**: a blockquote (`>`), one sentence, no trailing period, immediately below the H1.
-- **Feature bullets**: one emoji prefix per capability group; sub-bullets indented under the group label; group label is a link to its API Reference H3 anchor.
+- **"What this package does" bullets**: one ✅ per capability, one ❌ per explicit non-capability (❌ block is optional — remove if not needed). Each item line must end with **two trailing spaces** so Markdown renders line breaks correctly between items.
 - **Code blocks**: always declare the language fence (`javascript`, `json`, `bash`, `yaml`). Use `const` for all inputs. Show output as `// Result: ...` inline comments, not as separate prose.
 - **API Reference H3 headers**: `### {Label} (\`{export}\`)` — export name in inline code. Omit the parenthetical for top-level / default exports.
 - **API Reference H4 signatures**: `` #### `export.method(param1, param2?)` `` — mark optional parameters with `?`.
